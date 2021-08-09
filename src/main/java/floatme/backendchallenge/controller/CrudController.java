@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 public class CrudController {
@@ -36,7 +37,7 @@ public class CrudController {
         LocalDate localDate = LocalDate.now();
         person.setDate_joined(localDate);
         persons.save(person);
-        return "add";
+        return "redirect:/add";
     }
 
     @GetMapping("/get")
@@ -55,7 +56,9 @@ public class CrudController {
     }
 
     @GetMapping("/all")
-    public String all(){
+    public String all(Model model){
+        List<Person> allPerson = persons.findAll();
+        model.addAttribute("people", allPerson);
         return "all";
     }
 

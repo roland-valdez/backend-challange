@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Backend Challenge</title>
@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light2">
-    <a class="navbar-brand" href="/">War</a>
+    <a class="navbar-brand" href="/">Backend Challenge</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,11 +34,14 @@
     </div>
 </nav>
 
-<div>
-    <label>Name: </label>
-    <input class="name">
-    <label>Age: </label>
-    <input class="age">
+<div class="form form-group mx-5 my-3">
+    <form th:action="@{/add}" th:method="post" th:object="${person}">
+        <label for="name" >Name: </label>
+        <input th:field="*{name}" id="name" class="form-control-sm"/>
+        <label for="age" >Age: </label>
+        <input th:field="*{age}" id="age" class="form-control-sm"/>
+        <button type="submit">Add Person</button>
+    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

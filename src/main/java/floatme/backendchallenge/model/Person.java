@@ -1,6 +1,7 @@
-package floatme.backendchallange.model;
+package floatme.backendchallenge.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 
 @Entity
@@ -18,10 +19,10 @@ public class Person {
         private String age;
 
         @Column(nullable = true, length = 100)
-        private String date_joined;
+        private LocalDate date_joined;
 
         @Column(length = 255)
-        private String date_updated;
+        private LocalDate date_updated;
 
     public Person(){}
 
@@ -33,7 +34,7 @@ public class Person {
         date_updated = copy.date_updated;
     }
 
-    public Person(long id, String name, String age, String date_joined, String date_updated) {
+    public Person(long id, String name, String age, LocalDate date_joined, LocalDate date_updated) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -65,19 +66,19 @@ public class Person {
         this.age = age;
     }
 
-    public String getDate_joined() {
+    public LocalDate getDate_joined() {
         return date_joined;
     }
 
-    public void setDate_joined(String date_joined) {
+    public void setDate_joined(LocalDate date_joined) {
         this.date_joined = date_joined;
     }
 
-    public String getDate_updated() {
+    public LocalDate getDate_updated() {
         return date_updated;
     }
 
-    public void setDate_updated(String date_updated) {
+    public void setDate_updated(LocalDate date_updated) {
         this.date_updated = date_updated;
     }
 }

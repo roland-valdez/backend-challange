@@ -1,6 +1,6 @@
-package floatme.backendchallange.repository;
+package floatme.backendchallenge.repository;
 
-import floatme.backendchallange.model.Person;
+import floatme.backendchallenge.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {

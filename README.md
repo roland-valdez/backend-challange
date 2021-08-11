@@ -4,4 +4,7 @@ This project whill create a basic backend that includes a REST API that return J
 It will have full CRUD functionality.
 Unit testing will be done on endpoints.
 It will connect to a MySQL database.
-<img src="/erd-backend-challenge.jpeg" alt="cover"/>
+
+Image below is ERD Diagram of basic MySQL database that will be created and used.
+<br>
+<img src="/erd_backend_challenge.jpeg" width="400px"/>

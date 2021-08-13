@@ -22,8 +22,8 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public void addPerson (Person person){
-        personRepository.save(person);
+    public Person addPerson (Person person){
+        return personRepository.save(person);
     }
 
     public Person findPerson(Long personId){

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/person")
+@RequestMapping(path = "api/v1/person")
 public class CrudController {
     private final PersonService personService;
 
@@ -31,9 +31,9 @@ public class CrudController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addPersons(@RequestBody Person person){
+    public Person addPersons(@RequestBody Person person){
         person.setDate_updated(LocalDate.now());
-        personService.addPerson(person);
+        return personService.addPerson(person);
     }
 
     @DeleteMapping(path = "delete/{personId}")
@@ -42,15 +42,19 @@ public class CrudController {
     }
 
     @PutMapping(path = "update/{personId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updatePerson(@RequestBody Person person, @PathVariable("personId") Long personId){
+    public Person updatePerson(@RequestBody Person person, @PathVariable("personId") Long personId){
         Person original  = personService.findPerson(personId);
-        original.setName(person.getName());
-        original.setAge(person.getAge());
+        if(!(person.getName() == null)){
+            original.setName(person.getName());
+        }
+        if(!(person.getAge() == null)) {
+            original.setAge(person.getAge());
+        }
+        if(!(person.getDate_joined() == null)) {
+            original.setDate_joined(person.getDate_joined());
+        }
         original.setDate_updated(LocalDate.now());
-//        System.out.println("hello");
-        System.out.println(original);
-//        System.out.println(update);
-        personService.updatePerson(original);
+        return personService.updatePerson(original);
 
     }
 

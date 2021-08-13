@@ -32,6 +32,11 @@ public class Job {
         this.salary = salary;
     }
 
+    public Job(String job_title, Float salary) {
+        this.job_title = job_title;
+        this.salary = salary;
+    }
+
     public long getId() {
         return id;
     }

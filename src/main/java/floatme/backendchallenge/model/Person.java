@@ -26,16 +26,29 @@ public class Person {
 
     public Person(){}
 
-    public Person(Person copy){
-        id = copy.id;
-        name = copy.name;
-        age = copy.age;
-        date_joined = copy.date_joined;
-        date_updated = copy.date_updated;
-    }
+//    public Person(Person copy){
+//        id = copy.id;
+//        name = copy.name;
+//        age = copy.age;
+//        date_joined = copy.date_joined;
+//        date_updated = copy.date_updated;
+//    }
 
     public Person(long id, String name, String age, LocalDate date_joined, LocalDate date_updated) {
         this.id = id;
+        this.name = name;
+        this.age = age;
+        this.date_joined = date_joined;
+        this.date_updated = date_updated;
+    }
+
+    public Person(String name, String age, LocalDate date_joined) {
+        this.name = name;
+        this.age = age;
+        this.date_joined = date_joined;
+    }
+
+    public Person(String name, String age, LocalDate date_joined, LocalDate date_updated) {
         this.name = name;
         this.age = age;
         this.date_joined = date_joined;
@@ -80,5 +93,16 @@ public class Person {
 
     public void setDate_updated(LocalDate date_updated) {
         this.date_updated = date_updated;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", date_joined=" + date_joined +
+                ", date_updated=" + date_updated +
+                '}';
     }
 }

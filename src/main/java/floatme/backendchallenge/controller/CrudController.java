@@ -1,65 +1,54 @@
 package floatme.backendchallenge.controller;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import floatme.backendchallenge.model.Person;
-import floatme.backendchallenge.repository.PersonRepository;
-import org.springframework.stereotype.Controller;
+import floatme.backendchallenge.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping(path = "api/person")
 public class CrudController {
-    private final PersonRepository persons;
+    private final PersonService personService;
 
-    public CrudController(PersonRepository persons) {
-        this.persons = persons;
+    @Autowired
+    public CrudController(PersonService personService) {
+        this.personService = personService;
     }
 
-    @GetMapping("/")
-    public String landing(Model model){
-        LocalDate localDate = LocalDate.now();
-        model.addAttribute("date", localDate);
-        return "index";
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Person> getAllPersons(){
+        System.out.println(personService.getAllPersons());
+        return personService.getAllPersons();
     }
 
-    @GetMapping("/add")
-    public String add(Model model){
-        model.addAttribute("person", new Person());
-        return "add";
+    @GetMapping(path = "{personId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Person getPerson(@PathVariable("personId") Long personId){
+        System.out.println(personService.findPerson(personId));
+        return personService.findPerson(personId);
     }
 
-    @PostMapping("/add")
-    public String addPerson(@ModelAttribute Person person){
-        LocalDate localDate = LocalDate.now();
-        person.setDate_joined(localDate);
-        persons.save(person);
-        return "redirect:/add";
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void addPersons(@RequestBody Person person){
+        personService.addPerson(person);
     }
 
-    @GetMapping("/get")
-    public String get(){
-        return "get";
+    @DeleteMapping(path = "{personId}")
+    public void deletePerson(@PathVariable("personId") Long personId){
+        personService.deletePerson(personId);
     }
 
-    @GetMapping("/update")
-    public String update(){
-        return "update";
-    }
-
-    @GetMapping("/delete")
-    public String delete(){
-        return "delete";
-    }
-
-    @GetMapping("/all")
-    public String all(Model model){
-        List<Person> allPerson = persons.findAll();
-        model.addAttribute("people", allPerson);
-        return "all";
+    @PutMapping(path = "{personId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updatePerson(@PathVariable("personId") Long personId){
+        personService.updatePerson(personId);
     }
 
 }

@@ -18,8 +18,8 @@ public class Person {
         @Column(nullable = true, length = 100)
         private String name;
 
-        @Column(nullable = true, length = 3)
-        private String age;
+        @Column(nullable = true)
+        private Integer age;
 
         @Column(nullable = true, length = 100)
         private LocalDate date_joined;
@@ -37,7 +37,7 @@ public class Person {
 //        date_updated = copy.date_updated;
 //    }
 
-    public Person(long id, String name, String age, LocalDate date_joined, LocalDate date_updated) {
+    public Person(long id, String name, Integer age, LocalDate date_joined, LocalDate date_updated) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -45,13 +45,13 @@ public class Person {
         this.date_updated = date_updated;
     }
 
-    public Person(String name, String age, LocalDate date_joined) {
+    public Person(String name, Integer age, LocalDate date_joined) {
         this.name = name;
         this.age = age;
         this.date_joined = date_joined;
     }
 
-    public Person(String name, String age, LocalDate date_joined, LocalDate date_updated) {
+    public Person(String name, Integer age, LocalDate date_joined, LocalDate date_updated) {
         this.name = name;
         this.age = age;
         this.date_joined = date_joined;
@@ -74,11 +74,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

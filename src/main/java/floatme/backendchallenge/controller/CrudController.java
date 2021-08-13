@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@CrossOrigin(origins = "https://backend-challenge-heroku.herokuapp.com", maxAge = 3600)
 @RestController
 @RequestMapping(path = "api/v1/person")
 public class CrudController {

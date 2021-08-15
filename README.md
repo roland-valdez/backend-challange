@@ -11,6 +11,10 @@ Pre Deploy test:
 <img src="/predeploy_test.png" width="500px"/>
 
 
+Heroku Deploy test:
+<br>
+<img src="/keroku_deploy_test.png" width="500px"/>
+
 API is deployed on Heroku at: https://backend-challenge-heroku.herokuapp.com
 
 Languages and frameworks used: Java and Spring.

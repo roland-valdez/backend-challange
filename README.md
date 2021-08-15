@@ -1,6 +1,7 @@
 # backend-challenge
 
 This project creates a basic backend that includes a REST API that return JSON objects.
+
 It has full CRUD functionality.
 Automated endpoint testing was performed with Postman.
 It will connect to a MySQL database.

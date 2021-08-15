@@ -11,7 +11,7 @@ Languages and frameworks used: Java and Spring.
 API is deployed on Heroku at: <br>https://backend-challenge-heroku.herokuapp.com
 
 API Documentation <br>
-https://github.com/roland-valdez/backend-challange
+https://documenter.getpostman.com/view/17057847/Tzz7PJPi
 <hr>
 Pre Deploy test:
 <br>

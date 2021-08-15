@@ -13,7 +13,7 @@ Pre Deploy test:
 
 Heroku Deploy test:
 <br>
-<img src="/keroku_deploy_test.png" width="500px"/>
+<img src="/heroku_deploy_test.png" width="500px"/>
 
 API is deployed on Heroku at: https://backend-challenge-heroku.herokuapp.com
 

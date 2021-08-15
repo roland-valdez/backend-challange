@@ -14,7 +14,8 @@ public class Person {
 
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+//        @GeneratedValue(strategy = GenerationType.AUTO)
+
 //        @GeneratedValue(generator = "sequence-generator")
 //        @GenericGenerator(
 //                name = "sequence-generator",
@@ -36,7 +37,7 @@ public class Person {
 //                generator = "student_sequence"
 //        )
 
-//        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
 
         private long id;
 

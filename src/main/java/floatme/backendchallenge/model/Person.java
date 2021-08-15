@@ -1,6 +1,7 @@
 package floatme.backendchallenge.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,16 +14,30 @@ public class Person {
 
 
         @Id
-        @SequenceGenerator(
-                name = "person_sequence",
-                sequenceName = "person_sequence",
-                allocationSize = 1
-        )
-        @GeneratedValue(
-                strategy = GenerationType.SEQUENCE,
-                generator = "student_sequence"
-        )
+        @GeneratedValue(strategy = GenerationType.AUTO)
+//        @GeneratedValue(generator = "sequence-generator")
+//        @GenericGenerator(
+//                name = "sequence-generator",
+//                strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+//                parameters = {
+//                        @Parameter(name = "sequence_name", value = "user_sequence"),
+//                        @Parameter(name = "initial_value", value = "4"),
+//                        @Parameter(name = "increment_size", value = "1")
+//                }
+//        )
+
+//        @SequenceGenerator(
+//                name = "person_sequence",
+//                sequenceName = "person_sequence",
+//                allocationSize = 1
+//        )
+//        @GeneratedValue(
+//                strategy = GenerationType.SEQUENCE,
+//                generator = "student_sequence"
+//        )
+
 //        @GeneratedValue(strategy = GenerationType.IDENTITY)
+
         private long id;
 
         @Column(nullable = true, length = 100)
